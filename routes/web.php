@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+	'uses' => 'PageController@getIndex',
+	'as' => 'home'
+	]);
+Route::get('/about', [
+	'uses' => 'PageController@getAbout',
+	'as' => 'about'
+	]);
+Route::get('/contact', [
+	'uses' => 'PageController@getContact',
+	'as' => 'contact'
+	]);
+Route::resource('posts', 'PostController');
